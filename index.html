@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clerkenwell Grad Week 2026 — clerkenwellgradweek.com</title>
+  <link rel="canonical" href="https://clerkenwellgradweek.com" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #FAC800;
+      --gold-dark:   #D4A900;
+      --purple:      #6B2D8B;
+      --purple-dark: #521F6B;
+      --purple-pale: #F5F0F8;
+      --charcoal:    #1C1C1C;
+      --mid:         #666666;
+      --light:       #F5F3F0;
+      --white:       #FFFFFF;
+      --gill: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--gill); color: var(--charcoal); background: var(--white); line-height: 1.6; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--gold);
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-wordmark {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--purple);
+      line-height: 1.2;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: var(--purple);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    nav ul a:hover { opacity: 0.6; }
+
+    /* ── PURPLE STRIPE ── */
+    .stripe-purple { height: 5px; background: var(--purple); }
+    .stripe-gold   { height: 5px; background: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--purple-dark);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('EggerCGW.png');
+      background-size: cover;
+      background-position: center 38%;
+      opacity: 0.5;
+    }
+
+    /* Gold gradient overlay at bottom so text is always readable */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(82,31,107,0.92) 0%,
+        rgba(82,31,107,0.6) 40%,
+        transparent 70%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 4rem 4rem 5rem;
+      max-width: 780px;
+    }
+
+    .hero-logo {
+      display: block;
+      height: 80px;
+      width: auto;
+      margin-bottom: 2rem;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--purple);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.38rem 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-family: var(--gill);
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 em { color: var(--gold); font-style: normal; }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--gill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      transition: transform 0.15s, opacity 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .btn-gold { background: var(--gold); color: var(--purple); }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.6); color: var(--white); background: transparent; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .btn-purple { background: var(--purple); color: var(--white); }
+
+    /* ── SECTIONS ── */
+    .section { padding: 5rem 4rem; }
+    .section--light { background: var(--light); }
+    .section--purple { background: var(--purple); color: var(--white); }
+    .section--gold { background: var(--gold); }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .eyebrow--purple { color: var(--purple); }
+    .eyebrow--gold   { color: var(--gold); }
+    .eyebrow--white  { color: rgba(255,255,255,0.7); }
+
+    .section h2 {
+      font-family: var(--gill);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.1rem;
+    }
+
+    .section--purple h2 { color: var(--white); }
+    .section--gold h2   { color: var(--purple); }
+
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 660px;
+    }
+
+    .lead--grey  { color: var(--mid); }
+    .lead--white { color: rgba(255,255,255,0.75); }
+    .lead--purple { color: var(--purple-dark); }
+
+    /* ── ABOUT GRID ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .about-img-wrap { position: relative; }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Gold corner accent */
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -1.25rem;
+      right: -1.25rem;
+      width: 55%;
+      height: 55%;
+      background: var(--gold);
+      z-index: -1;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p {
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── STATS ── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 4rem;
+      border: 1px solid #E0DCDC;
+    }
+
+    .stat {
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid #E0DCDC;
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat .num {
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      color: var(--purple);
+    }
+
+    .stat .lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* purple stats variant */
+    .stats-strip--purple { border-color: rgba(255,255,255,0.15); margin-top: 4rem; }
+    .stats-strip--purple .stat { border-color: rgba(255,255,255,0.15); }
+    .stats-strip--purple .num { color: var(--gold); }
+    .stats-strip--purple .lbl { color: rgba(255,255,255,0.6); }
+
+    /* ── MOSAIC ── */
+    .mosaic {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 270px 270px;
+      gap: 4px;
+      background: var(--charcoal);
+    }
+
+    .mosaic-cell { overflow: hidden; }
+    .mosaic-cell:first-child { grid-row: span 2; }
+    .mosaic-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .mosaic-cell:hover img { transform: scale(1.05); }
+
+    /* ── SCHEDULE ── */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 3rem;
+    }
+
+    .day-card {
+      background: var(--white);
+      padding: 2.4rem;
+      border-top: 5px solid var(--gold);
+    }
+
+    .day-card .day-pill {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .day-card .day-date {
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .day-card h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #EEE;
+    }
+
+    .day-card ul { list-style: none; }
+
+    .day-card ul li {
+      font-size: 0.86rem;
+      color: var(--mid);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #F0EEEE;
+      line-height: 1.5;
+    }
+
+    .day-card ul li:last-child { border-bottom: none; }
+
+    .day-card ul li strong {
+      display: block;
+      color: var(--charcoal);
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ── PARTNERS ── */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .partner-card {
+      text-align: center;
+      padding: 2rem 1.25rem;
+      background: var(--white);
+      border: 1.5px solid #E4E0E8;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .partner-card:hover {
+      border-color: var(--purple);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(107,45,139,0.12);
+    }
+
+    .partner-dot {
+      width: 44px;
+      height: 44px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.9rem;
+      font-size: 1.1rem;
+      color: var(--purple);
+      font-weight: 700;
+    }
+
+    .partner-role-lbl {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .partner-name-lbl {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    /* ── REGISTER SECTION ── */
+    .register-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .register-info h3 {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .register-info p {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-size: 0.94rem;
+    }
+
+    .benefits {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .benefits li {
+      display: flex;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      line-height: 1.5;
+    }
+
+    .benefits li:last-child { border-bottom: none; }
+
+    .benefits li::before {
+      content: '→';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .contact-block {
+      margin-top: 2.2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .contact-block p {
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-block a {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--white);
+      padding: 2.5rem;
+    }
+
+    .form-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-card > p {
+      font-size: 0.84rem;
+      color: var(--mid);
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group { margin-bottom: 1.1rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 0.38rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.72rem 0.9rem;
+      border: 1.5px solid #DDD;
+      background: #FAFAFA;
+      font-family: var(--gill);
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      outline: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+      background: var(--white);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group textarea { resize: vertical; min-height: 85px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-check input[type="checkbox"] {
+      width: auto;
+      margin-top: 0.18rem;
+      accent-color: var(--purple);
+      flex-shrink: 0;
+    }
+
+    .form-check label {
+      font-size: 0.8rem !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      font-weight: 400 !important;
+      color: var(--mid) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .form-check label a { color: var(--charcoal); }
+
+    .form-submit {
+      width: 100%;
+      background: var(--purple);
+      color: var(--white);
+      border: none;
+      font-family: var(--gill);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .form-submit:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.72rem;
+      color: #AAA;
+      margin-top: 0.75rem;
+    }
+
+    /* success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .success-tick {
+      width: 60px;
+      height: 60px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.6rem;
+      color: var(--purple);
+      font-weight: 700;
+    }
+
+    .form-success h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p { font-size: 0.88rem; color: var(--mid); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-brand { display: flex; flex-direction: column; gap: 0.3rem; }
+    .footer-brand img { height: 32px; width: auto; }
+    .footer-brand span {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    footer ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    footer ul a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.78rem;
+      transition: color 0.2s;
+    }
+
+    footer ul a:hover { color: var(--gold); }
+
+    .footer-contact { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-align: right; line-height: 1.8; }
+    .footer-contact a { color: var(--gold); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .section { padding: 4rem 2.5rem; }
+      .hero-content { padding: 3rem 2.5rem 4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap::after { display: none; }
+      .schedule-grid { grid-template-columns: 1fr; gap: 3px; }
+      .partners-grid { grid-template-columns: repeat(3, 1fr); }
+      .register-grid { grid-template-columns: 1fr; }
+      .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .mosaic-cell:first-child { grid-row: auto; }
+      .mosaic-cell img { height: 220px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .stats-strip .stat { border-bottom: 1px solid #E0DCDC; }
+      footer { flex-direction: column; padding: 2.5rem; }
+      .footer-contact { text-align: left; }
+    }
+
+    @media (max-width: 640px) {
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+      .hero-ctas { flex-direction: column; }
+      .btn { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-brand" href="https://clerkenwellgradweek.com">
+    <img class="nav-logo" src="CGW.png" alt="CGW logo" onerror="this.style.display='none'" />
+    <span class="nav-wordmark">Clerkenwell<br>Grad Week</span>
+  </a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#register">Register</a></li>
+  </ul>
+</nav>
+<div class="stripe-purple"></div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="CGW-yellow.png" alt="Clerkenwell Grad Week" onerror="this.style.display='none'" />
+    <div class="hero-pill">29 June – 3 July 2026 &nbsp;·&nbsp; Clerkenwell, London</div>
+    <h1>Celebrating<br><em>British Design</em><br>Graduates</h1>
+    <p class="hero-sub">CGW 2026 — Clerkenwell District</p>
+    <p class="hero-desc">A week-long celebration of UK design students from regional universities, hosted across Clerkenwell's world-class showrooms. Showcasing talent, building networks, and shaping the next generation of British design.</p>
+    <div class="hero-ctas">
+      <a href="#register" class="btn btn-gold">Register Interest</a>
+      <a href="#schedule" class="btn btn-ghost">View Schedule</a>
+    </div>
+  </div>
+</section>
+<div class="stripe-gold"></div>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <p class="eyebrow eyebrow--purple">About the Event</p>
+  <h2>Where Regional Talent<br>Meets Clerkenwell</h2>
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80"
+        alt="Design students collaborating"
+        loading="lazy"
+      />
+    </div>
+    <div class="about-text">
+      <h3>A platform for the next generation of interior and product designers</h3>
+      <p>Clerkenwell Grad Week (CGW) is an annual event held every July, running alongside New Designers at the Business Design Centre — a moment when London is alive with emerging design talent.</p>
+      <p>For 2026, Egger London Showroom will host 10 students from Teesside University to showcase their work, run presentations, network, tour showrooms, and meet professional contacts across the Clerkenwell district.</p>
+      <p>A collaboration between regional design universities, Interior Educators charity, and Clerkenwell Showrooms — the social enterprise supporting UK interior and product design graduates.</p>
+      <a href="#register" class="btn btn-purple" style="margin-top:1.25rem;">Get Involved</a>
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat"><div class="num">10+</div><div class="lbl">Students Hosted</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Key Partners</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Days of Events</div></div>
+    <div class="stat"><div class="num">1</div><div class="lbl">Awards Ceremony</div></div>
+  </div>
+</section>
+
+<!-- ── PHOTO MOSAIC ── -->
+<div class="mosaic">
+  <div class="mosaic-cell">
+    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&q=80" alt="Students presenting work" loading="lazy" />
+  </div>
+  <div class="mosaic-cell">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Architecture student with drawings" loading="lazy" />
+  </div>
+  <div class="mosaic-cell">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Modern showroom interior" loading="lazy" />
+  </div>
+  <div class="mosaic-cell">
+    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?w=600&q=80" alt="Design studio collaboration" loading="lazy" />
+  </div>
+  <div class="mosaic-cell">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="Networking event" loading="lazy" />
+  </div>
+</div>
+
+<!-- ── SCHEDULE ── -->
+<section class="section section--light" id="schedule">
+  <p class="eyebrow eyebrow--purple">Programme</p>
+  <h2>Three Days, One District,<br>Endless Opportunity</h2>
+  <p class="lead lead--grey">CGW 2026 spans three days of showcasing, touring, networking, and celebrating design excellence across the Clerkenwell district.</p>
+
+  <div class="schedule-grid">
+    <div class="day-card">
+      <div class="day-pill">Day One</div>
+      <div class="day-date">1 July</div>
+      <h4>Showcase &amp; Awards</h4>
+      <ul>
+        <li>
+          <strong>Egger London Showroom</strong>
+          Students arrive to represent their work, run presentations, and network with professionals.
+        </li>
+        <li>
+          <strong>IE Awards — Miller Knoll</strong>
+          Evening Interior Educators Student Awards ceremony hosted at Miller Knoll showroom.
+        </li>
+        <li>
+          <strong>New Designers @ BDC</strong>
+          Business Design Centre opens — visit and explore emerging student talent.
+        </li>
+      </ul>
+    </div>
+
+    <div class="day-card">
+      <div class="day-pill">Day Two</div>
+      <div class="day-date">2 July</div>
+      <h4>Showroom Tour Day</h4>
+      <ul>
+        <li>
+          <strong>Guided Clerkenwell Tour</strong>
+          Students tour showrooms including Tarkett Atelier, Frem Group, Shaw Contract, MagScapes and RAK Ceramics.
+        </li>
+        <li>
+          <strong>IE Awards Display</strong>
+          Winning entries on display at Miller Knoll for the duration of the week.
+        </li>
+        <li>
+          <strong>New Designers @ BDC</strong>
+          Continued access to the New Designers show at Business Design Centre.
+        </li>
+      </ul>
+    </div>
+
+    <div class="day-card">
+      <div class="day-pill">Day Three</div>
+      <div class="day-date">3 July</div>
+      <h4>CGW Closing Reception</h4>
+      <ul>
+        <li>
+          <strong>MagScapes Terrace — No. 5 Albemarle Way</strong>
+          The CGW closing reception brings together students, showroom hosts, and industry contacts.
+        </li>
+        <li>
+          <strong>New Designers @ BDC</strong>
+          Final days of New Designers at Business Design Centre.
+        </li>
+        <li>
+          <strong>Open Networking</strong>
+          Informal connections across the Clerkenwell district with showroom professionals and peers.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section class="section" id="partners">
+  <p class="eyebrow eyebrow--purple">Key Partners</p>
+  <h2>The Organisations Making<br>CGW 2026 Possible</h2>
+  <p class="lead lead--grey">CGW is built on a network of Clerkenwell showrooms, educational institutions, and industry bodies united behind one goal: celebrating regional design talent.</p>
+
+  <div class="partners-grid">
+    <div class="partner-card">
+      <div class="partner-dot">CS</div>
+      <div class="partner-role-lbl">Event Organiser</div>
+      <div class="partner-name-lbl">Clerkenwell Showrooms</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-dot">EG</div>
+      <div class="partner-role-lbl">Lead Showroom</div>
+      <div class="partner-name-lbl">Egger London</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-dot">MK</div>
+      <div class="partner-role-lbl">Awards Showroom</div>
+      <div class="partner-name-lbl">Miller Knoll</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-dot">CU</div>
+      <div class="partner-role-lbl">Local Education Sponsor</div>
+      <div class="partner-name-lbl">City University London</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-dot">ND</div>
+      <div class="partner-role-lbl">Supporting Partner</div>
+      <div class="partner-name-lbl">New Designers</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REGISTER ── -->
+<section class="section section--purple" id="register">
+  <p class="eyebrow eyebrow--gold">Get Involved</p>
+  <h2>Register Your Interest</h2>
+
+  <div class="register-grid">
+    <!-- Left: info -->
+    <div class="register-info">
+      <h3>Join Clerkenwell Grad Week 2026</h3>
+      <p>Whether you're a showroom looking to host students, a university seeking to showcase graduates, or an industry professional wanting to connect — CGW 2026 has a place for you.</p>
+      <p>Clerkenwell Grad Week grows each year, with more showrooms, more students, and more activities celebrating regional design excellence in the heart of the Clerkenwell district.</p>
+
+      <ul class="benefits">
+        <li>Host students and showcase your brand to the next generation</li>
+        <li>Feature in CGW communications and social media coverage</li>
+        <li>Network with regional universities and design educators</li>
+        <li>Be part of a growing movement championing British design talent</li>
+        <li>Access to the IE Awards ceremony at Miller Knoll</li>
+        <li>Invitation to the CGW closing reception at No. 5 Albemarle Way</li>
+      </ul>
+
+      <div class="contact-block">
+        <p>For more information contact:</p>
+        <a href="mailto:info@clerkenwellshowrooms.com">info@clerkenwellshowrooms.com</a>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div>
+      <div class="form-card">
+        <h3>Register Your Interest</h3>
+        <p>Complete the form and we'll be in touch within 3 working days.</p>
+
+        <form id="cgwForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="jane@showroom.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="organisation">Organisation / Showroom *</label>
+            <input type="text" id="organisation" placeholder="Your showroom or company name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="jobrole">Your Role</label>
+            <input type="text" id="jobrole" placeholder="e.g. Showroom Manager, University Lecturer" />
+          </div>
+
+          <div class="form-group">
+            <label for="regtype">I am registering as *</label>
+            <select id="regtype" required>
+              <option value="" disabled selected>Please select…</option>
+              <option value="showroom">Participating Showroom</option>
+              <option value="university">University / Education Partner</option>
+              <option value="student">Design Student</option>
+              <option value="professional">Industry Professional</option>
+              <option value="press">Press / Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Tell us about your interest in CGW</label>
+            <textarea id="interest" placeholder="e.g. We'd love to host students and exhibit their work in our showroom…"></textarea>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="consent" required />
+            <label for="consent">
+              I agree to be contacted by Clerkenwell Showrooms about CGW 2026 and related events.
+              View <a href="https://www.clerkenwellshowrooms.com/gdpr-privacy">privacy notice</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="form-submit">Submit Registration</button>
+          <p class="form-note">We'll respond within 3 working days · <a href="https://clerkenwellgradweek.com" style="color:#AAA;">clerkenwellgradweek.com</a></p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-tick">✓</div>
+          <h4>Thank you for registering!</h4>
+          <p>We'll be in touch within 3 working days with full details about participating in CGW 2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip stats-strip--purple">
+    <div class="stat"><div class="num">July</div><div class="lbl">Annual Event, Clerkenwell</div></div>
+    <div class="stat"><div class="num">10+</div><div class="lbl">Regional Universities</div></div>
+    <div class="stat"><div class="num">∞</div><div class="lbl">Connections Made</div></div>
+    <div class="stat"><div class="num">Free</div><div class="lbl">To Attend for Students</div></div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">
+    <img src="CGW.png" alt="CGW" onerror="this.style.display='none'" />
+    <span>5 Albemarle Way · London EC1V 4JB</span>
+    <span><a href="https://clerkenwellgradweek.com" style="color:rgba(250,200,0,0.8); text-decoration:none;">clerkenwellgradweek.com</a></span>
+  </div>
+  <ul>
+    <li><a href="https://www.clerkenwellshowrooms.com">Clerkenwell Showrooms</a></li>
+    <li><a href="https://www.clerkenwellshowrooms.com/events">Events</a></li>
+    <li><a href="https://www.clerkenwellshowrooms.com/gdpr-privacy">Privacy Notice</a></li>
+  </ul>
+  <div class="footer-contact">
+    <a href="mailto:info@clerkenwellshowrooms.com">info@clerkenwellshowrooms.com</a><br>
+    07966 193258
+  </div>
+</footer>
+
+<script>
+  document.getElementById('cgwForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+    this.querySelectorAll('[required]').forEach(f => {
+      if (f.type === 'checkbox') {
+        f.style.outline = f.checked ? '' : '2px solid #C00';
+        if (!f.checked) valid = false;
+      } else {
+        f.style.borderColor = f.value.trim() ? '' : '#C00';
+        if (!f.value.trim()) valid = false;
+      }
+    });
+    if (!valid) return;
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+
+  // Active nav highlighting
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('nav ul a').forEach(a => {
+          a.style.opacity = a.getAttribute('href') === '#' + e.target.id ? '1' : '';
+          a.style.textDecoration = a.getAttribute('href') === '#' + e.target.id ? 'underline' : '';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
