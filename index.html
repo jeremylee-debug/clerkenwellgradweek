@@ -34,7 +34,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      height: 60px;
+      height: 84px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.12);
     }
 
@@ -46,8 +46,9 @@
     }
 
     .nav-logo {
-      height: 36px;
+      height: 70px;
       width: auto;
+      object-fit: contain;
     }
 
     .nav-wordmark {
@@ -120,9 +121,12 @@
 
     .hero-logo {
       display: block;
-      height: 80px;
+      height: 160px;
       width: auto;
+      max-width: 100%;
+      object-fit: contain;
       margin-bottom: 2rem;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
     }
 
     .hero-pill {
@@ -654,8 +658,8 @@
       gap: 1.5rem;
     }
 
-    .footer-brand { display: flex; flex-direction: column; gap: 0.3rem; }
-    .footer-brand img { height: 32px; width: auto; }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-cgw-logo { height: 64px; width: auto; object-fit: contain; }
     .footer-brand span {
       font-size: 0.65rem;
       letter-spacing: 0.12em;
@@ -806,10 +810,6 @@
         <li>
           <strong>Egger London Showroom</strong>
           Students arrive to represent their work, run presentations, and network with professionals.
-        </li>
-        <li>
-          <strong>IE Awards — Miller Knoll</strong>
-          Evening Interior Educators Student Awards ceremony hosted at Miller Knoll showroom.
         </li>
         <li>
           <strong>New Designers @ BDC</strong>
@@ -996,7 +996,7 @@
 
   <div class="stats-strip stats-strip--purple">
     <div class="stat"><div class="num">July</div><div class="lbl">Annual Event, Clerkenwell</div></div>
-    <div class="stat"><div class="num">10+</div><div class="lbl">Regional Universities</div></div>
+    <div class="stat"><div class="num">50+</div><div class="lbl">Regional Universities</div></div>
     <div class="stat"><div class="num">∞</div><div class="lbl">Connections Made</div></div>
     <div class="stat"><div class="num">Free</div><div class="lbl">To Attend for Students</div></div>
   </div>
@@ -1005,7 +1005,7 @@
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-brand">
-    <img src="CGW.png" alt="CGW" onerror="this.style.display='none'" />
+    <img class="footer-cgw-logo" src="combined-logo.png" alt="Clerkenwell Showrooms &amp; Clerkenwell Grad Week" onerror="this.style.display='none'" />
     <span>5 Albemarle Way · London EC1V 4JB</span>
     <span><a href="https://clerkenwellgradweek.com" style="color:rgba(250,200,0,0.8); text-decoration:none;">clerkenwellgradweek.com</a></span>
   </div>
@@ -1051,6 +1051,61 @@
   }, { threshold: 0.3 });
 
   document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+</script>
+
+<!-- ── MUSIC PLAYER ── -->
+<div id="musicBtn" title="Toggle ambient music" style="
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  background: #FAC800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.2s;
+">
+  <svg id="iconPlay" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B2D8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+  </svg>
+  <svg id="iconPause" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FAC800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+    <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+  </svg>
+</div>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="https://cdn.freesound.org/previews/612/612095_5674468-lq.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const musicBtn  = document.getElementById('musicBtn');
+  const bgMusic   = document.getElementById('bgMusic');
+  const iconPlay  = document.getElementById('iconPlay');
+  const iconPause = document.getElementById('iconPause');
+
+  bgMusic.volume = 0.3;
+
+  musicBtn.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      iconPlay.style.display  = 'none';
+      iconPause.style.display = 'block';
+      musicBtn.style.background = '#521F6B';
+    } else {
+      bgMusic.pause();
+      iconPlay.style.display  = 'block';
+      iconPause.style.display = 'none';
+      musicBtn.style.background = '#FAC800';
+    }
+  });
+
+  musicBtn.addEventListener('mouseenter', () => { musicBtn.style.transform = 'scale(1.12)'; });
+  musicBtn.addEventListener('mouseleave', () => { musicBtn.style.transform = 'scale(1)'; });
 </script>
 </body>
 </html>
